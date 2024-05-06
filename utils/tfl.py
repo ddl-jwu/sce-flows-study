@@ -4,7 +4,7 @@ from .adam import ADAM
 from typing import List
 from flytekitplugins.domino.task import DominoJobConfig, DominoJobTask
 from flytekit import workflow, task
-from flytekit.types.file import FlyteFile
+from flytekit.types.file import FlyteFile,PDFFile
 from flytekit.types.directory import FlyteDirectory
 
 def create_tfl_report(
@@ -13,7 +13,7 @@ def create_tfl_report(
     dependencies: List[ADAM],
     environment: str = None,
     hardware_tier: str = None
-) -> FlyteFile:
+) -> PDFFile:
     """
     This method provides a standard interface for creating a TFL report 
 
@@ -30,7 +30,7 @@ def create_tfl_report(
         inputs.append(Input(name=dataset.filename, type=FlyteFile, value=dataset.data))
 
     # Define outputs
-    outputs = [Output(name="report", type=FlyteFile)]
+    outputs = [Output(name="report", type=PDFFile)]
 
     results = run_domino_job(
         name=f"Create {name} report",
