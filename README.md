@@ -9,7 +9,7 @@ This repo mocks a sample SCE clinical trial using Domino Flows. The example flow
 To run the flow, execute the command below through a terminal in your workspace: 
 
 ```
-pyflyte run --remote workflow.py sce_workflow --sdtm_data_path "/mnt/imported/data/snapshots/sdtm-blind/1"
+pyflyte run --copy-all --remote workflow.py sce_workflow --sdtm_data_path "/mnt/imported/data/snapshots/sdtm-blind/1"
 ```
 - The `pyflyte run` command will register the flow and trigger an execution.
 - The `--remote` option enables running the execution remotely (outside of the workspace).
