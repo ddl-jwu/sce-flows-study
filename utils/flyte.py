@@ -56,7 +56,6 @@ def run_domino_job(
 
     job_config = DominoJobConfig(
         Title=name,
-        ApiKey=api_key,
         Command=command,
         CommitId=dfs_commit_id, 
         MainRepoGitRef=GitRef(Type="head"), # TODO: Allow user to change git branch and commit. For now, we will use
